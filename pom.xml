@@ -28,5 +28,6 @@
     <modules>
         <module>dsaa</module>
         <module>dsps</module>
+        <module>coding-interview-guide</module>
     </modules>
 </project>
