@@ -29,5 +29,6 @@
         <module>dsaa</module>
         <module>dsps</module>
         <module>coding-interview-guide</module>
+        <module>algs4</module>
     </modules>
 </project>
