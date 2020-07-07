@@ -1,5 +1,7 @@
 package chapter9.sort;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
 /**
@@ -19,11 +21,38 @@ public class Sort {
      */
     public static void insertSort(int[] keys) {
         for (int i = 0; i < keys.length; i++) {
+            //temp是第i个数
             int temp = keys[i];
             int j;
+            //向前寻找记录i的正确位置
             for (j = i - 1; j >= 0 && temp < keys[j]; j--) {
                 keys[j + 1] = keys[j];
             }
+            //将temp插入到指定位置,j+1就是i的正确位置
+            keys[j + 1] = temp;
+            System.out.print("第" + i + "趟 temp=" + temp + "\t");
+            System.out.println(Arrays.toString(keys));
+        }
+    }
+
+    @Test
+    public void insertSort3() {
+        int[] keys = {4,5,3,6,7,1,2,99,77,44};
+        insertSort3(keys);
+        System.out.println(Arrays.toString(keys));
+    }
+
+
+    public static void insertSort3(int[] keys) {
+        for (int i = 1; i < keys.length; i++) {
+            //temp是第i个数
+            int temp = keys[i];
+            int j;
+            for (j = i - 1; j >= 0 && temp < keys[j]; j--) {
+                //大于temp的后移
+                keys[j + 1] = keys[j];
+            }
+            //将temp插入到指定位置
             keys[j + 1] = temp;
             System.out.print("第" + i + "趟 temp=" + temp + "\t");
             System.out.println(Arrays.toString(keys));
@@ -101,6 +130,7 @@ public class Sort {
     public static void bubbleSort(int[] keys) {
         int flag = 1;
         int n = keys.length;
+        //第n趟
         for (int i = 1; i < n && flag == 1; i++) {
             flag = 0;
             for (int j = 0; j < n - i; j++) {
@@ -115,6 +145,7 @@ public class Sort {
             System.out.println(Arrays.toString(keys));
         }
     }
+
 
     /**
      * 冒泡排序
@@ -141,7 +172,7 @@ public class Sort {
      */
     public static void bubbleSort3(int[] keys) {
         boolean exchange = true;
-        for (int i = 1; i < keys.length ; i++) {
+        for (int i = 1; i < keys.length; i++) {
 
             for (int j = 0; j < keys.length - i; j++) {
                 if (keys[j] > keys[j + 1]) {
@@ -155,6 +186,51 @@ public class Sort {
         }
     }
 
+    /**
+     * 快速排序标准过程
+     *
+     * @param keys
+     * @param begin
+     * @param end
+     */
+    public static void quickSortStandard(int[] keys, int begin, int end) {
+        if (begin >= end) {
+            return;
+        }
+        //分区并且找出轴值
+        int pivot = partition(keys, begin, end);
+        //递归调用
+        System.out.println(pivot);
+        quickSortStandard(keys, begin, pivot - 1);
+        quickSortStandard(keys, pivot + 1, end);
+    }
+
+
+    private static int partition(int[] keys, int begin, int end) {
+        int i = begin;
+        int j = end;
+        int vot = keys[i]; //标准元素，从第一个元素选择
+        while (i != j) {
+            //从右往左,找第一个比vot小的，因为需要保证右面都大于vot
+            while (i < j && vot <= keys[j]) j--;
+            if (i < j) {
+                //将比5小的赋值给前面
+                keys[i] = keys[j];
+                i++;
+            }
+            //从左往右，找第一个比5大的
+            while (i < j && keys[i] <= vot) i++;
+            if (i < j) {
+                //赋值给后面元素
+                keys[j] = keys[i];
+                j--;
+            }
+        }
+        //找到之后vot赋值给中心位置，使得左面的小于vot，
+        keys[i] = vot;
+        return i;
+    }
+
 
     /**
      * 快速排序
@@ -163,17 +239,22 @@ public class Sort {
         if (begin < end) {
             int i = begin;
             int j = end;
-            int vot = keys[i]; //标准元素
+            int vot = keys[i]; //标准元素，从第一个元素选择
             while (i != j) {
+                //从右往左,找第一个比vot小的，因为需要保证右面都大于vot
                 while (i < j && vot <= keys[j]) j--;
                 if (i < j) {
+                    //将比5小的赋值给前面
                     keys[i++] = keys[j];
                 }
+                //从左往右，找第一个比5大的
                 while (i < j && keys[i] <= vot) i++;
                 if (i < j) {
+                    //赋值给后面元素
                     keys[j--] = keys[i];
                 }
             }
+            //找到之后vot赋值给中心位置，使得左面的小于vot，
             keys[i] = vot;
             System.out.print("[" + begin + "-" + end + "],  vot=" + vot + "  ");
             System.out.println(Arrays.toString(keys));
@@ -183,7 +264,7 @@ public class Sort {
     }
 
     /**
-     * 快速排序
+     * 快速排序，这种比较好理解
      */
     public static void quickSort2(int[] keys, int begin, int end) {
         if (begin < end) {
@@ -212,7 +293,7 @@ public class Sort {
 
     /**
      * 选择排序
-     * */
+     */
     public static void selectSort(int[] keys) {
         for (int i = 0; i < keys.length - 1; i++) {
             int min = i;
@@ -232,7 +313,6 @@ public class Sort {
 
     /**
      * 堆排序
-     *
      */
     public static void heapSort(int[] keys) {
         heapSort(keys, true);
@@ -240,8 +320,9 @@ public class Sort {
 
     /**
      * 堆排序
+     *
      * @param keys
-     * @param minHeap  是否为最小堆
+     * @param minHeap 是否为最小堆
      */
     public static void heapSort(int[] keys, boolean minHeap) {
         for (int i = keys.length / 2 - 1; i >= 0; i--) {
@@ -260,6 +341,7 @@ public class Sort {
 
     /**
      * 调整堆
+     *
      * @param keys
      * @param parent
      * @param end
@@ -286,6 +368,7 @@ public class Sort {
 
     /**
      * 是否是最小堆
+     *
      * @param value
      * @return
      */
@@ -304,6 +387,7 @@ public class Sort {
 
     /**
      * 是否是最大堆
+     *
      * @param value
      * @return
      */
@@ -331,6 +415,73 @@ public class Sort {
         } else {
             System.out.println("非最大堆或者最小堆");
         }
+    }
+
+
+    /**
+     * 二路归并排序
+     *
+     * @param array
+     * @param low
+     * @param high
+     */
+    public static void mergeSortStandard(int[] array, int low, int high) {
+        if (low >= high) {
+            return;
+        }
+        int middle = (high + low) / 2;
+        System.out.println(low + "---" + middle + "---" + high);
+        //对左面一半进行递归
+        mergeSortStandard(array, low, middle);
+        //对右面一半进行递归
+        mergeSortStandard(array, middle + 1, high);
+        //进行归并
+        merge(array, low, middle, high);
+        System.out.println(Arrays.toString(array));
+
+    }
+
+    /**
+     * 输入：数据元素数组 array，待合并的两个有序区间[low..middle]以及[middle+1..high]
+     * 输出：将两个有序区间合并为一个有序区间
+     * 归并排序中一个核心的操作是将一个序列中前后两个相邻的子序列合并为一个有序序列，
+     *
+     * @param array
+     * @param low
+     * @param middle
+     * @param high
+     */
+    public static void merge(int[] array, int low, int middle, int high) {
+        //临时数组
+        int[] b = new int[high - low + 1];
+        //左边子序列起始位置
+        int s = low;
+        //右边子序列起始位置
+        int t = middle + 1;
+        int k = 0;
+        while (s <= middle && t <= high) {
+            //取较小者插入合并数组
+            if (array[s] < array[t]) {
+                b[k++] = array[s++];
+            } else {
+                b[k++] = array[t++];
+            }
+        }
+
+        while (s <= middle) {
+            //只剩下左序列，可以直接复制
+            b[k++] = array[s++];
+        }
+        while (t <= high) {
+            b[k++] = array[t++];
+        }
+
+        for (int i = 0; i < b.length; i++) {
+            //临时数组值拷贝到原始数组 array
+            array[low + i] = b[i];
+        }
+
+
     }
 
     /**
@@ -386,8 +537,15 @@ public class Sort {
 
 
     public static void main(String[] args) throws ClassNotFoundException {
-//        int[] keys = {32,26,87,72,26,17};
+//        int[] keys = {32, 26, 87, 72, 26, 17};
 //        insertSort(keys);
+//        bubbleSort(keys);
+//        int[] mykeys = {5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8};
+        int[] mykeys = {25, 34, 45, 32, 34, 12, 29, 64};
+//        quickSortStandard(mykeys, 0, mykeys.length - 1);
+        mergeSortStandard(mykeys, 0, mykeys.length - 1);
+//        quickSort(mykeys, 0, mykeys.length - 1);
+        System.out.println(Arrays.toString(mykeys));
 //        insertSort2(keys);
 //        int [] keys = {38,55,65,97,27,76,27,13,19};
 //        shellSort1(keys);
@@ -410,7 +568,7 @@ public class Sort {
 //        mergeSort(keys);
 
         //叶核亚的课后习题
-        int[] keys = {3, 17, 12, 61, 8, 70, 97, 75, 53, 26, 54, 61};
+//        int[] keys = {3, 17, 12, 61, 8, 70, 97, 75, 53, 26, 54, 61};
         //插入排序
 //        insertSort(keys);
 //        shellSort1(keys);
@@ -422,8 +580,8 @@ public class Sort {
 //        quickSort(keys,0,keys.length-1);
         //归并排序
 //        mergeSort(keys);
-        int oldCapacity = 100 ;// 100 * 100*1/2  扩大为原来的一半
-        System.out.println(oldCapacity + (oldCapacity >> 1));
+//        int oldCapacity = 100;// 100 * 100*1/2  扩大为原来的一半
+//        System.out.println(oldCapacity + (oldCapacity >> 1));
     }
 
 }
