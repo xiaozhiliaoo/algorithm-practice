@@ -40,5 +40,6 @@
         <module>dsps</module>
         <module>coding-interview-guide</module>
         <module>algs4</module>
+        <module>The-Algorithm-Design-Manual</module>
     </modules>
 </project>
