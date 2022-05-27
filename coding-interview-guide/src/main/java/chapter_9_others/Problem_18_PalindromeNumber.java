@@ -8,7 +8,7 @@ public class Problem_18_PalindromeNumber {
 		}
 		n = Math.abs(n);
 		int help = 1;
-		while (n / help >= 10) { // ·ÀÖ¹helpÒç³ö
+		while (n / help >= 10) {
 			help *= 10;
 		}
 		while (n != 0) {

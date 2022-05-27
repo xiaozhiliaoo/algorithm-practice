@@ -60,7 +60,6 @@ public class Problem_21_PreInPosArrayToTree {
 		return head;
 	}
 
-	// 每个节点的孩子数都为0或2的二叉树才能被先序与后序重构出来
 	public static Node prePosToTree(int[] pre, int[] pos) {
 		if (pre == null || pos == null) {
 			return null;

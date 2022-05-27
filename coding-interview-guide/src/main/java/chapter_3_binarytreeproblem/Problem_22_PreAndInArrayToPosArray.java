@@ -18,9 +18,7 @@ public class Problem_22_PreAndInArrayToPosArray {
 		return pos;
 	}
 
-	// 从右往左依次填好后序数组s
-	// si为后序数组s该填的位置
-	// 返回值为s该填的下一个位置
+
 	public static int setPos(int[] p, int pi, int pj, int[] n, int ni, int nj,
 			int[] s, int si, HashMap<Integer, Integer> map) {
 		if (pi > pj) {

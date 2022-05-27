@@ -41,5 +41,6 @@
         <module>coding-interview-guide</module>
         <module>algs4</module>
         <module>The-Algorithm-Design-Manual</module>
+        <module>ds-java</module>
     </modules>
 </project>

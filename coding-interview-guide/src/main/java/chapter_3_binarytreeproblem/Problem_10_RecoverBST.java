@@ -74,18 +74,18 @@ public class Problem_10_RecoverBST {
 		Node e2L = e2.left;
 		Node e2R = e2.right;
 		if (e1 == head) {
-			if (e1 == e2P) { // Çé¿öÒ»
+			if (e1 == e2P) { // ï¿½ï¿½ï¿½Ò»
 				e1.left = e2L;
 				e1.right = e2R;
 				e2.right = e1;
 				e2.left = e1L;
-			} else if (e2P.left == e2) { // Çé¿ö¶þ
+			} else if (e2P.left == e2) { // ï¿½ï¿½ï¿½ï¿½ï¿½
 				e2P.left = e1;
 				e2.left = e1L;
 				e2.right = e1R;
 				e1.left = e2L;
 				e1.right = e2R;
-			} else { // Çé¿öÈý
+			} else { // ï¿½ï¿½ï¿½ï¿½ï¿½
 				e2P.right = e1;
 				e2.left = e1L;
 				e2.right = e1R;
@@ -94,18 +94,18 @@ public class Problem_10_RecoverBST {
 			}
 			head = e2;
 		} else if (e2 == head) {
-			if (e2 == e1P) { // Çé¿öËÄ
+			if (e2 == e1P) { // ï¿½ï¿½ï¿½ï¿½ï¿½
 				e2.left = e1L;
 				e2.right = e1R;
 				e1.left = e2;
 				e1.right = e2R;
-			} else if (e1P.left == e1) { // Çé¿öÎå
+			} else if (e1P.left == e1) { // ï¿½ï¿½ï¿½ï¿½ï¿½
 				e1P.left = e2;
 				e1.left = e2L;
 				e1.right = e2R;
 				e2.left = e1L;
 				e2.right = e1R;
-			} else { // Çé¿öÁù
+			} else { // ï¿½ï¿½ï¿½ï¿½ï¿½
 				e1P.right = e2;
 				e1.left = e2L;
 				e1.right = e2R;
@@ -115,13 +115,13 @@ public class Problem_10_RecoverBST {
 			head = e1;
 		} else {
 			if (e1 == e2P) {
-				if (e1P.left == e1) { // Çé¿öÆß
+				if (e1P.left == e1) { // ï¿½ï¿½ï¿½ï¿½ï¿½
 					e1P.left = e2;
 					e1.left = e2L;
 					e1.right = e2R;
 					e2.left = e1L;
 					e2.right = e1;
-				} else { // Çé¿ö°Ë
+				} else { // ï¿½ï¿½ï¿½ï¿½ï¿½
 					e1P.right = e2;
 					e1.left = e2L;
 					e1.right = e2R;
@@ -129,13 +129,13 @@ public class Problem_10_RecoverBST {
 					e2.right = e1;
 				}
 			} else if (e2 == e1P) {
-				if (e2P.left == e2) { // Çé¿ö¾Å
+				if (e2P.left == e2) { // ï¿½ï¿½ï¿½ï¿½ï¿½
 					e2P.left = e1;
 					e2.left = e1L;
 					e2.right = e1R;
 					e1.left = e2;
 					e1.right = e2R;
-				} else { // Çé¿öÊ®
+				} else { // ï¿½ï¿½ï¿½Ê®
 					e2P.right = e1;
 					e2.left = e1L;
 					e2.right = e1R;
@@ -144,14 +144,14 @@ public class Problem_10_RecoverBST {
 				}
 			} else {
 				if (e1P.left == e1) {
-					if (e2P.left == e2) { // Çé¿öÊ®Ò»
+					if (e2P.left == e2) { // ï¿½ï¿½ï¿½Ê®Ò»
 						e1.left = e2L;
 						e1.right = e2R;
 						e2.left = e1L;
 						e2.right = e1R;
 						e1P.left = e2;
 						e2P.left = e1;
-					} else { // Çé¿öÊ®¶þ
+					} else { // ï¿½ï¿½ï¿½Ê®ï¿½ï¿½
 						e1.left = e2L;
 						e1.right = e2R;
 						e2.left = e1L;
@@ -160,14 +160,14 @@ public class Problem_10_RecoverBST {
 						e2P.right = e1;
 					}
 				} else {
-					if (e2P.left == e2) { // Çé¿öÊ®Èý
+					if (e2P.left == e2) { // ï¿½ï¿½ï¿½Ê®ï¿½ï¿½
 						e1.left = e2L;
 						e1.right = e2R;
 						e2.left = e1L;
 						e2.right = e1R;
 						e1P.right = e2;
 						e2P.left = e1;
-					} else { // Çé¿öÊ®ËÄ
+					} else { // ï¿½ï¿½ï¿½Ê®ï¿½ï¿½
 						e1.left = e2L;
 						e1.right = e2R;
 						e2.left = e1L;
@@ -246,7 +246,7 @@ public class Problem_10_RecoverBST {
 		printTree(head);
 		System.out.println(isBST(head));
 
-		// Çé¿ö1, 7 -> e1, 5 -> e2
+		// ï¿½ï¿½ï¿½1, 7 -> e1, 5 -> e2
 		System.out.println("situation 1");
 		Node head1 = new Node(7);
 		head1.left = new Node(3);
@@ -262,7 +262,7 @@ public class Problem_10_RecoverBST {
 		printTree(res1);
 		System.out.println(isBST(res1));
 
-		// Çé¿ö2, 6 -> e1, 5 -> e2
+		// ï¿½ï¿½ï¿½2, 6 -> e1, 5 -> e2
 		System.out.println("situation 2");
 		Node head2 = new Node(6);
 		head2.left = new Node(3);
@@ -278,7 +278,7 @@ public class Problem_10_RecoverBST {
 		printTree(res2);
 		System.out.println(isBST(res2));
 
-		// Çé¿ö3, 8 -> e1, 5 -> e2
+		// ï¿½ï¿½ï¿½3, 8 -> e1, 5 -> e2
 		System.out.println("situation 3");
 		Node head3 = new Node(8);
 		head3.left = new Node(3);
@@ -294,7 +294,7 @@ public class Problem_10_RecoverBST {
 		printTree(res3);
 		System.out.println(isBST(res3));
 
-		// Çé¿ö4, 5 -> e1, 3 -> e2
+		// ï¿½ï¿½ï¿½4, 5 -> e1, 3 -> e2
 		System.out.println("situation 4");
 		Node head4 = new Node(3);
 		head4.left = new Node(5);
@@ -310,7 +310,7 @@ public class Problem_10_RecoverBST {
 		printTree(res4);
 		System.out.println(isBST(res4));
 
-		// Çé¿ö5, 5 -> e1, 2 -> e2
+		// ï¿½ï¿½ï¿½5, 5 -> e1, 2 -> e2
 		System.out.println("situation 5");
 		Node head5 = new Node(2);
 		head5.left = new Node(3);
@@ -326,7 +326,7 @@ public class Problem_10_RecoverBST {
 		printTree(res5);
 		System.out.println(isBST(res5));
 
-		// Çé¿ö6, 5 -> e1, 4 -> e2
+		// ï¿½ï¿½ï¿½6, 5 -> e1, 4 -> e2
 		System.out.println("situation 6");
 		Node head6 = new Node(4);
 		head6.left = new Node(3);
@@ -342,7 +342,6 @@ public class Problem_10_RecoverBST {
 		printTree(res6);
 		System.out.println(isBST(res6));
 
-		// Çé¿ö7, 4 -> e1, 3 -> e2
 		System.out.println("situation 7");
 		Node head7 = new Node(5);
 		head7.left = new Node(4);
@@ -358,7 +357,7 @@ public class Problem_10_RecoverBST {
 		printTree(res7);
 		System.out.println(isBST(res7));
 
-		// Çé¿ö8, 8 -> e1, 7 -> e2
+		// ï¿½ï¿½ï¿½8, 8 -> e1, 7 -> e2
 		System.out.println("situation 8");
 		Node head8 = new Node(5);
 		head8.left = new Node(3);
@@ -374,7 +373,6 @@ public class Problem_10_RecoverBST {
 		printTree(res8);
 		System.out.println(isBST(res8));
 
-		// Çé¿ö9, 3 -> e1, 2 -> e2
 		System.out.println("situation 9");
 		Node head9 = new Node(5);
 		head9.left = new Node(2);
@@ -390,7 +388,7 @@ public class Problem_10_RecoverBST {
 		printTree(res9);
 		System.out.println(isBST(res9));
 
-		// Çé¿ö10, 7 -> e1, 6 -> e2
+		// ï¿½ï¿½ï¿½10, 7 -> e1, 6 -> e2
 		System.out.println("situation 10");
 		Node head10 = new Node(5);
 		head10.left = new Node(3);
@@ -406,7 +404,6 @@ public class Problem_10_RecoverBST {
 		printTree(res10);
 		System.out.println(isBST(res10));
 
-		// Çé¿ö11, 6 -> e1, 2 -> e2
 		System.out.println("situation 11");
 		Node head11 = new Node(5);
 		head11.left = new Node(3);
@@ -422,7 +419,7 @@ public class Problem_10_RecoverBST {
 		printTree(res11);
 		System.out.println(isBST(res11));
 
-		// Çé¿ö12, 8 -> e1, 2 -> e2
+		// ï¿½ï¿½ï¿½12, 8 -> e1, 2 -> e2
 		System.out.println("situation 12");
 		Node head12 = new Node(5);
 		head12.left = new Node(3);
@@ -438,7 +435,7 @@ public class Problem_10_RecoverBST {
 		printTree(res12);
 		System.out.println(isBST(res12));
 
-		// Çé¿ö13, 6 -> e1, 4 -> e2
+		// ï¿½ï¿½ï¿½13, 6 -> e1, 4 -> e2
 		System.out.println("situation 13");
 		Node head13 = new Node(5);
 		head13.left = new Node(3);
@@ -454,7 +451,7 @@ public class Problem_10_RecoverBST {
 		printTree(res13);
 		System.out.println(isBST(res13));
 
-		// Çé¿ö14, 8 -> e1, 4 -> e2
+		// ï¿½ï¿½ï¿½14, 8 -> e1, 4 -> e2
 		System.out.println("situation 14");
 		Node head14 = new Node(5);
 		head14.left = new Node(3);

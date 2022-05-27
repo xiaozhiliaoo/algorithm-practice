@@ -20,7 +20,6 @@ public class Problem_29_TopKTimes1 {
 			return;
 		}
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		// 生成哈希表(字符串--词频)
 		for (int i = 0; i != arr.length; i++) {
 			String cur = arr[i];
 			if (!map.containsKey(cur)) {
@@ -31,7 +30,6 @@ public class Problem_29_TopKTimes1 {
 		}
 		Node[] heap = new Node[topK];
 		int index = 0;
-		// 遍历哈希表，决定每条信息是否进堆
 		for (Entry<String, Integer> entry : map.entrySet()) {
 			String str = entry.getKey();
 			int times = entry.getValue();
@@ -46,12 +44,11 @@ public class Problem_29_TopKTimes1 {
 				}
 			}
 		}
-		// 把小根堆的所有元素按词频从大到小排序
 		for (int i = index - 1; i != 0; i--) {
 			swap(heap, 0, i);
 			heapify(heap, 0, i);
 		}
-		// 严格按照排名打印k条记录
+		// 锟较革拷锟斤拷锟斤拷锟斤拷锟斤拷印k锟斤拷锟斤拷录
 		for (int i = 0; i != heap.length; i++) {
 			if (heap[i] == null) {
 				break;

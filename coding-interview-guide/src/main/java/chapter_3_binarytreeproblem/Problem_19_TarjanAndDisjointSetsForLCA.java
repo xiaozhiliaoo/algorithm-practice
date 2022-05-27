@@ -25,13 +25,12 @@ public class Problem_19_TarjanAndDisjointSetsForLCA {
 		}
 	}
 
-	// 主函数
+
 	public static Node[] tarJanQuery(Node head, Query[] quries) {
 		Node[] ans = new Tarjan().query(head, quries);
 		return ans;
 	}
 
-	// Tarjan算法实现处理流程
 	public static class Tarjan {
 		private HashMap<Node, LinkedList<Node>> queryMap;
 		private HashMap<Node, LinkedList<Integer>> indexMap;
@@ -105,7 +104,7 @@ public class Problem_19_TarjanAndDisjointSetsForLCA {
 
 	}
 
-	// 实现Tarjan类中使用的并查集结构
+	// 实锟斤拷Tarjan锟斤拷锟斤拷使锟矫的诧拷锟介集锟结构
 	public static class DisjointSets {
 		public HashMap<Node, Node> fatherMap;
 		public HashMap<Node, Integer> rankMap;
@@ -204,7 +203,7 @@ public class Problem_19_TarjanAndDisjointSetsForLCA {
 		printTree(head);
 		System.out.println("===============");
 
-		// 生成查询数组
+		// 锟斤拷锟缴诧拷询锟斤拷锟斤拷
 		Query[] qs = new Query[7];
 		qs[0] = new Query(head.left.right, head.right.left);
 		qs[1] = new Query(head.left.left, head.left);
@@ -214,10 +213,10 @@ public class Problem_19_TarjanAndDisjointSetsForLCA {
 		qs[5] = new Query(head, head);
 		qs[6] = new Query(head.left, head.right.right.left);
 
-		// Tarjan算法结合并查集解决所有查询问题
+		// Tarjan锟姐法锟斤拷喜锟斤拷榧拷锟斤拷锟斤拷锟叫诧拷询锟斤拷锟斤拷
 		Node[] ans = tarJanQuery(head, qs);
 
-		// 打印答案
+		// 锟斤拷印锟斤拷
 		for (int i = 0; i != ans.length; i++) {
 			System.out.println("o1 : " + qs[i].o1.value);
 			System.out.println("o2 : " + qs[i].o2.value);

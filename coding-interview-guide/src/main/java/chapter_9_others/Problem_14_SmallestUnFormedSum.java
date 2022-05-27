@@ -10,7 +10,7 @@ public class Problem_14_SmallestUnFormedSum {
 			return 1;
 		}
 		HashSet<Integer> set = new HashSet<Integer>();
-		process(arr, 0, 0, set); // 收集所有子集的和
+		process(arr, 0, 0, set);
 		int min = Integer.MAX_VALUE;
 		for (int i = 0; i != arr.length; i++) {
 			min = Math.min(min, arr[i]);
@@ -28,8 +28,8 @@ public class Problem_14_SmallestUnFormedSum {
 			set.add(sum);
 			return;
 		}
-		process(arr, i + 1, sum, set); // 包含当前数arr[i]的情况
-		process(arr, i + 1, sum + arr[i], set); // 不包含当前数arr[i]的情况
+		process(arr, i + 1, sum, set);
+		process(arr, i + 1, sum + arr[i], set);
 	}
 
 	public static int unformedSum2(int[] arr) {
@@ -62,7 +62,7 @@ public class Problem_14_SmallestUnFormedSum {
 		if (arr == null || arr.length == 0) {
 			return 0;
 		}
-		Arrays.sort(arr); // 把arr排序
+		Arrays.sort(arr);
 		int range = 0;
 		for (int i = 0; i != arr.length; i++) {
 			if (arr[i] > range + 1) {

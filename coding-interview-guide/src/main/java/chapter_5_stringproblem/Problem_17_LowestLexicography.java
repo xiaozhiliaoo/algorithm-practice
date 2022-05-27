@@ -16,7 +16,6 @@ public class Problem_17_LowestLexicography {
 		if (strs == null || strs.length == 0) {
 			return "";
 		}
-		// 根据新的比较方式排序
 		Arrays.sort(strs, new MyComparator());
 		String res = "";
 		for (int i = 0; i < strs.length; i++) {

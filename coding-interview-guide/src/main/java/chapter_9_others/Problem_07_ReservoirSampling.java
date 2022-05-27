@@ -2,7 +2,6 @@ package chapter_9_others;
 
 public class Problem_07_ReservoirSampling {
 
-	// 一个简单的随机函数，决定一个事情做还是不做
 	public static int rand(int max) {
 		return (int) (Math.random() * max) + 1;
 	}
@@ -13,11 +12,11 @@ public class Problem_07_ReservoirSampling {
 		}
 		int[] res = new int[Math.min(k, max)];
 		for (int i = 0; i != res.length; i++) {
-			res[i] = i + 1; // 前k个数直接进袋子
+			res[i] = i + 1; // 前k锟斤拷锟斤拷直锟接斤拷锟斤拷锟斤拷
 		}
 		for (int i = k + 1; i < max + 1; i++) {
-			if (rand(i) <= k) { // 决定i进不进袋子
-				res[rand(k) - 1] = i; // i随机替掉袋子中的一个
+			if (rand(i) <= k) { // 锟斤拷锟斤拷i锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+				res[rand(k) - 1] = i; // i锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟叫碉拷一锟斤拷
 			}
 		}
 		return res;

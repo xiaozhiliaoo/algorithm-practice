@@ -34,8 +34,6 @@ public class Problem_17_NQueens {
 	}
 
 	public static int num2(int n) {
-		// 因为本方法中位运算的载体是int型变量，所以该方法只能算1~32皇后问题
-		// 如果想计算更多的皇后问题，需使用包含更多位的变量
 		if (n < 1 || n > 32) {
 			return 0;
 		}

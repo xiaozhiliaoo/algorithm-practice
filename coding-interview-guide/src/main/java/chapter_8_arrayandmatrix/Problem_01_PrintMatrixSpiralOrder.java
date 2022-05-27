@@ -13,15 +13,15 @@ public class Problem_01_PrintMatrixSpiralOrder {
 	}
 
 	public static void printEdge(int[][] m, int tR, int tC, int dR, int dC) {
-		if (tR == dR) { // 子矩阵只有一行时
+		if (tR == dR) {
 			for (int i = tC; i <= dC; i++) {
 				System.out.print(m[tR][i] + " ");
 			}
-		} else if (tC == dC) { // 子矩阵只有一列时
+		} else if (tC == dC) {
 			for (int i = tR; i <= dR; i++) {
 				System.out.print(m[i][tC] + " ");
 			}
-		} else { // 一般情况
+		} else {
 			int curC = tC;
 			int curR = tR;
 			while (curC != dC) {

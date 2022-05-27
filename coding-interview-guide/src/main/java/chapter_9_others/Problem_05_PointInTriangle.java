@@ -29,7 +29,6 @@ public class Problem_05_PointInTriangle {
 
 	public static boolean isInside2(double x1, double y1, double x2, double y2,
 			double x3, double y3, double x, double y) {
-		// 如果三角形的点不是逆时针输入，改变一下顺序
 		if (crossProduct(x3 - x1, y3 - y1, x2 - x1, y2 - y1) >= 0) {
 			double tmpx = x2;
 			double tmpy = y2;

@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class Problem_23_ReceiveAndPrintOrderLine {
 
-	// 简单的单链表节点结构
 	public static class Node {
 		public int num;
 		public Node next;

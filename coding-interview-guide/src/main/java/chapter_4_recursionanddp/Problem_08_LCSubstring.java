@@ -50,22 +50,22 @@ public class Problem_08_LCSubstring {
 		}
 		char[] chs1 = str1.toCharArray();
 		char[] chs2 = str2.toCharArray();
-		int row = 0; // Ð±Ïß¿ªÊ¼Î»ÖÃµÄÐÐ
-		int col = chs2.length - 1; // Ð±Ïß¿ªÊ¼Î»ÖÃµÄÁÐ
-		int max = 0; // ¼ÇÂ¼×î´ó³¤¶È
-		int end = 0; // ×î´ó³¤¶È¸üÐÂÊ±£¬¼ÇÂ¼×Ó´®µÄ½áÎ²Î»ÖÃ
+		int row = 0;
+		int col = chs2.length - 1;
+		int max = 0;
+		int end = 0;
 		while (row < chs1.length) {
 			int i = row;
 			int j = col;
 			int len = 0;
-			// ´Ó(i,j)¿ªÊ¼ÏòÓÒÏÂ·½±éÀú
+			// ï¿½ï¿½(i,j)ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½
 			while (i < chs1.length && j < chs2.length) {
 				if (chs1[i] != chs2[j]) {
 					len = 0;
 				} else {
 					len++;
 				}
-				// ¼ÇÂ¼×î´óÖµ£¬ÒÔ¼°½áÊø×Ö·ûµÄÎ»ÖÃ
+				// ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 				if (len > max) {
 					end = i;
 					max = len;
@@ -73,9 +73,9 @@ public class Problem_08_LCSubstring {
 				i++;
 				j++;
 			}
-			if (col > 0) { // Ð±Ïß¿ªÊ¼Î»ÖÃµÄÁÐÏÈÏò×óÒÆ¶¯
+			if (col > 0) { // Ð±ï¿½ß¿ï¿½Ê¼Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
 				col--;
-			} else { // ÁÐÒÆ¶¯µ½×î×óÖ®ºó£¬ÐÐÏòÏÂÒÆ¶¯
+			} else { // ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
 				row++;
 			}
 		}

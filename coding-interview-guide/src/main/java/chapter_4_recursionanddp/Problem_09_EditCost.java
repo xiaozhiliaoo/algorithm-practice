@@ -39,7 +39,7 @@ public class Problem_09_EditCost {
 		char[] chs2 = str2.toCharArray();
 		char[] longs = chs1.length >= chs2.length ? chs1 : chs2;
 		char[] shorts = chs1.length < chs2.length ? chs1 : chs2;
-		if (chs1.length < chs2.length) { // str2较长就交换ic和dc的值
+		if (chs1.length < chs2.length) {
 			int tmp = ic;
 			ic = dc;
 			dc = tmp;
@@ -49,10 +49,10 @@ public class Problem_09_EditCost {
 			dp[i] = ic * i;
 		}
 		for (int i = 1; i <= longs.length; i++) {
-			int pre = dp[0]; // pre表示左上角的值
+			int pre = dp[0];
 			dp[0] = dc * i;
 			for (int j = 1; j <= shorts.length; j++) {
-				int tmp = dp[j]; // dp[j]没更新前先保存下来
+				int tmp = dp[j];
 				if (longs[i - 1] == shorts[j - 1]) {
 					dp[j] = pre;
 				} else {
@@ -60,7 +60,7 @@ public class Problem_09_EditCost {
 				}
 				dp[j] = Math.min(dp[j], dp[j - 1] + ic);
 				dp[j] = Math.min(dp[j], tmp + dc);
-				pre = tmp; // pre变成dp[j]没更新前的值
+				pre = tmp;
 			}
 		}
 		return dp[shorts.length];
