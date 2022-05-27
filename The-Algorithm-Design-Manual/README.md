@@ -1,3 +1,5 @@
+# 《算法设计指南-第二版》
+
 中文名《算法设计指南-第二版》 Steven Skiena ，中文只有第二版，英文已经第三版了
 
 算法的Video和Slide：https://www3.cs.stonybrook.edu/~algorith/video-lectures/
